@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlaO Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme"> 
+    <div class="navbar-trigger"></div>
+    <nav class="navbar">
+        <div class="nav-left-mobile">
+            <a href="#">หน้าแรก</a>
+            <div class="nav-item has-sub">
+                <a href="#" id="works-link" onclick="toggleWorks(event)">ผลงาน</a>
+                <div class="nav-submenu" id="works-submenu">
+                    <a href="cinematography.html">ถ่าย</a>
+                    <a href="editor.html">ตัดต่อ</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <div class="dropdown" id="dropdown-settings">
+                <button class="dropbtn" id="main-btn">
+                    <img src="src/logo/setting.png" alt="Settings" class="icon-mobile">
+                </button>
+                <div class="dropdown-content">
+                    <div class="mobile-nested">
+                        <div class="nested-trigger" onclick="toggleNested(event, 'theme-list')">
+                            <img src="src/theme/sun.png" id="current-theme-icon" alt="Theme">
+                        </div>
+                        <div class="nested-content" id="theme-list">
+                            <a href="#" data-theme="light" onclick="setTheme('light', 'src/theme/sun.png')"><img src="src/theme/sun.png"></a>
+                            <a href="#" data-theme="dark" onclick="setTheme('dark', 'src/theme/moon.png')"><img src="src/theme/moon.png"></a>
+                        </div>
+                    </div>
+                    <div class="mobile-nested mobile-only-nested">
+                        <hr class="mobile-divider">
+                        <div class="nested-trigger" onclick="toggleNested(event, 'lang-list')">
+                            <img src="src/flag/thai.png" id="current-lang-icon-mobile" alt="Language">
+                        </div>
+                        <div class="nested-content" id="lang-list">
+                            <a href="#" data-lang="TH" onclick="setLang('src/flag/thai.png', 'TH')"><img src="src/flag/thai.png"></a>
+                            <a href="#" data-lang="EN" onclick="setLang('src/flag/usa.png', 'EN')"><img src="src/flag/usa.png"></a>
+                            <a href="#" data-lang="JP" onclick="setLang('src/flag/japan.png', 'JP')"><img src="src/flag/japan.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="main-container">
+        <div class="info-section">
+            <h1 id="txt-name">ชยานันต์ เติมวัฒนพงศ์</h1>
+            <p class="nickname"><span id="txt-nickname-label">ชื่อเล่น:</span> <span id="txt-nickname">วิน</span></p>
+            <div class="card">
+                <h3 id="txt-edu-title">ประวัติการศึกษา</h3>
+                <p id="txt-university">มหาวิทยาลัยกรุงเทพ</p>
+                <p id="txt-faculty">คณะดิจิทัลมีเดียและศิลปะภาพยนตร์</p>
+                <p id="txt-major">สาขาภาพยนตร์ เอกลำดับภาพ</p>
+                <p id="txt-minor">โทการผลิตภาพกราฟิกเคลื่อนไหวและสื่อผสม</p>
+            </div>
+            <div class="card">
+                <h3 id="txt-skill-title">ความสามารถ</h3>
+                <div class="skills">
+                    <span>Premiere Pro</span>
+                    <span>After Effects</span>
+                    <span>Cinematography</span>
+                </div>
+            </div>
+        </div>
+        <div class="image-section">
+            <img src="src\main\myself.jpg" alt="Chayanan" class="profile-img">
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 PlaO Portfolio</p>
+        </div>
+    </footer>
+
+    <a href="https://line.me/ti/p/mnapc3J5jO" target="_blank" class="contact-fab">
+    <img src="src/logo/mail.png" alt="Contact">
+</a>
+</body>
+</html>
