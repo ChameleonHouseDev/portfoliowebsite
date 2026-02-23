@@ -2,12 +2,89 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinematography - PlaO Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ผลงานการถ่ายทำ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .work-layout {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 15px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .info-section {
+            width: 100%;
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
+        .slider-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .video-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 15px;
+            padding: 10px 0;
+            width: 100%;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            box-sizing: border-box;
+        }
+        .video-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .video-card {
+            flex: 0 0 85%;
+            margin-left: 5%;
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            scroll-snap-align: center;
+        }
+        .video-card:last-child {
+            margin-right: 5%;
+        }
+        .nav-controls {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            font-size: 20px;
+            -webkit-tap-highlight-color: transparent;
+        }
+        @media (min-width: 769px) {
+            .video-card { flex: 0 0 325px; margin-left: 0; }
+            .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); margin-top: 0; }
+            .prev-btn { left: 10px; }
+            .next-btn { right: 10px; }
+            .nav-controls { display: block; }
+        }
+    </style>
 </head>
 <body class="light-theme">
     <div class="navbar-trigger"></div>
@@ -22,7 +99,6 @@
                 </div>
             </div>
         </div>
-
         <div class="nav-right">
             <div class="dropdown" id="dropdown-settings">
                 <button class="dropbtn" id="main-btn">
@@ -55,18 +131,54 @@
     </nav>
 
     <div class="main-container">
-        <div class="info-section">
-            <h1>Cinematography</h1>
+        <div class="work-layout">
+            <div class="info-section">
+                <h1 style="font-size: 2.5rem; margin: 0;">ผลงานการถ่ายทำ</h1>
+            </div>
+            <div class="slider-container">
+                <div class="video-wrapper" id="videoWrapper">
+                    <div class="video-card">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@tiantian2018/video/7606938707127733522" data-video-id="7606938707127733522"> <section> </section> </blockquote>
+                    </div>
+                    <div class="video-card">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@tiantian2018/video/7607024067580857607" data-video-id="7607024067580857607"> <section> </section> </blockquote>
+                    </div>
+                    <div class="video-card">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@tiantian2018/video/7608459791685389575" data-video-id="7608459791685389575"> <section> </section> </blockquote>
+                    </div>
+                    <div class="video-card">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@tiantian2018/video/7607748239118421266" data-video-id="7607748239118421266"> <section> </section> </blockquote>
+                    </div>
+                    <div class="video-card">
+                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@tiantian2018/video/7606638094493699348" data-video-id="7606638094493699348"> <section> </section> </blockquote>
+                    </div>
+                </div>
+                <div class="nav-controls">
+                    <button class="nav-btn prev-btn" onclick="slide('prev')">❮</button>
+                    <button class="nav-btn next-btn" onclick="slide('next')">❯</button>
+                </div>
+            </div>
         </div>
     </div>
 
+    <script>
+        function slide(direction) {
+            const wrapper = document.getElementById('videoWrapper');
+            const scrollStep = wrapper.clientWidth * 0.8;
+            if (direction === 'next') {
+                wrapper.scrollLeft += scrollStep;
+            } else {
+                wrapper.scrollLeft -= scrollStep;
+            }
+        }
+    </script>
+    <script async src="https://www.tiktok.com/embed.js"></script>
     <script src="script.js"></script>
     <footer>
         <div class="footer-content">
             <p>&copy; 2026 PlaO Portfolio</p>
         </div>
     </footer>
-
     <a href="https://line.me/ti/p/mnapc3J5jO" target="_blank" class="contact-fab">
         <img src="src/logo/mail.png" alt="Contact">
     </a>
